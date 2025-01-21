@@ -484,6 +484,8 @@ jobs:
 
           - spec: cp313-win_amd64
 
+          - spec: cp311-win_arm64
+          
           - spec: cp312-win_arm64
 
           - spec: cp313-win_arm64
