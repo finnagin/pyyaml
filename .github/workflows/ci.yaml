@@ -484,6 +484,10 @@ jobs:
 
           - spec: cp313-win_amd64
 
+          - spec: cp312-win_arm64
+
+          - spec: cp313-win_arm64
+
           - spec: cp38-win32
             omit: ${{ env.skip_ci_redundant_jobs }}
 
