@@ -426,6 +426,7 @@ jobs:
         include:
         - arch: x64
         - arch: win32
+        - arch: ARM64
     steps:
     - name: Get cached libyaml state
       id: cached_libyaml
@@ -452,7 +453,7 @@ jobs:
         mkdir libyaml/build
 
         pushd libyaml/build
-        cmake.exe -G "Visual Studio 17 2022" -A ${{ matrix.arch }} -DYAML_STATIC_LIB_NAME=yaml ..
+        cmake.exe -G "Visual Studio 17 2022" -A ${{ matrix.arch }} ${{ matric.arch == 'ARM64' && '-T "v143,host-x86"' || '' }} -DYAML_STATIC_LIB_NAME=yaml ..
         cmake.exe --build . --config Release
         popd
 
@@ -533,7 +534,7 @@ jobs:
       uses: actions/cache/restore@v4
       with:
         path: libyaml
-        key: libyaml_${{'windows'}}_${{ contains(matrix.spec, 'win_amd64') && 'x64' || 'win32' }}_${{env.LIBYAML_REF}}
+        key: libyaml_${{'windows'}}_${{ contains(matrix.spec, 'win_arm64') && 'ARM64' || contains(matrix.spec, 'win_amd64') && 'x64' || 'win32' }}_${{env.LIBYAML_REF}}
         fail-on-cache-miss: true
 
     - name: Install python
