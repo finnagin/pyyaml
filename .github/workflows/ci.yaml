@@ -552,6 +552,7 @@ jobs:
         CIBW_TEST_COMMAND: pytest {package}
         CIBW_TEST_REQUIRES: pytest
         CIBW_PRERELEASE_PYTHONS: 1
+        CIBW_ARCHS: "auto ARM64"
         CIBW_TEST_SKIP: "*-win_arm64"
         #CIBW_CONFIG_SETTINGS: |
         #  pyyaml_build_config='{"include_dirs": ["libyaml/include"], "library_dirs": ["libyaml/build/Release"], "define": [["YAML_DECLARE_STATIC", 1]], "force": 1}'
