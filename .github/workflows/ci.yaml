@@ -433,7 +433,7 @@ jobs:
       uses: actions/cache@v4
       with:
         path: libyaml
-        key: libyaml_${{ 'windows' }}_${{ matrix.arch }}_${{ env.LIBYAML_REF }}
+        key: libyaml_${{ 'windows' }}_${{ matrix.arch }}_test1_${{ env.LIBYAML_REF }}
 
     - name: Build libyaml
       shell: bash
