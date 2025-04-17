@@ -504,12 +504,14 @@ jobs:
           - spec: cp313-win32
             omit: ${{ env.skip_ci_redundant_jobs }}
 
+          - spec: cp310-win_arm64
+            runs-on: windows-11-arm
+          
           - spec: cp311-win_arm64
             runs-on: windows-11-arm
 
           - spec: cp312-win_arm64
             runs-on: windows-11-arm
-            omit: ${{ env.skip_ci_redundant_jobs }}
           
           - spec: cp313-win_arm64
             runs-on: windows-11-arm
